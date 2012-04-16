@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------
-// <copyright file="ObjectFasterFlection.cs" company="Route Manager de México">
-//     Copyright Route Manager de México(c) 2011. All rights reserved.
+// <copyright file="ObjectFasterFlection.cs" company="Route Manager de Mï¿½xico">
+//     Copyright Route Manager de Mï¿½xico(c) 2011. All rights reserved.
 // </copyright>
 // ------------------------------------------------------------------------
 namespace CommonUtilities
@@ -79,8 +79,8 @@ namespace CommonUtilities
         {
             Contract.Requires(source != null, "source is null.");
             Contract.Requires(dest != null, "dest is null.");
-            Contract.Requires(this.ObjectType.IsInstanceOfType(source), "Reflected type does not match source object type");
-            Contract.Requires(this.ObjectType.IsInstanceOfType(dest), "Reflected type does not match dest object type");
+            Contract.Requires(this.source.IsInstanceOfType(ObjectType), "Reflected type does not match source object type");
+            Contract.Requires(this.dest.IsInstanceOfType(ObjectType), "Reflected type does not match dest object type");
 
             IEnumerable<string> getterNames = this.getPropertyNames.Intersect(this.setPropertyNames);
             if (includeFields)
@@ -107,8 +107,8 @@ namespace CommonUtilities
             Contract.Requires(source != null, "source is null.");
             Contract.Requires(dest != null, "dest is null.");
             Contract.Requires(property_names != null, "property_names is null.");
-            Contract.Requires(this.ObjectType.IsInstanceOfType(source), "Reflected type does not match source object type");
-            Contract.Requires(this.ObjectType.IsInstanceOfType(dest), "Reflected type does not match dest object type");
+            Contract.Requires(this.source.IsInstanceOfType(ObjectType), "Reflected type does not match source object type");
+            Contract.Requires(this.dest.IsInstanceOfType(ObjectType), "Reflected type does not match dest object type");
 
             foreach (string name in property_names)
             {
@@ -148,8 +148,8 @@ namespace CommonUtilities
         {
             Contract.Requires(comparedA != null, "source is null.");
             Contract.Requires(comparedB != null, "dest is null.");
-            Contract.Requires(this.ObjectType.IsInstanceOfType(comparedB));
-            Contract.Requires(this.ObjectType.IsInstanceOfType(comparedA));
+            Contract.Requires(this.comparedB.IsInstanceOfType(ObjectType));
+            Contract.Requires(this.comparedA.IsInstanceOfType(ObjectType));
 
             bool equal = false;
 
@@ -166,7 +166,7 @@ namespace CommonUtilities
                 }
                 else
                 {
-                    // SMELL: Va tirar una excepción si se provee un nombre de propiedad inexistente
+                    // SMELL: Va tirar una excepciï¿½n si se provee un nombre de propiedad inexistente
                     currentGetters = property_names.Select(name => this.Getters[name]).ToArray();
                 }
 
