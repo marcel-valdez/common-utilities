@@ -79,8 +79,8 @@ namespace CommonUtilities
         {
             Contract.Requires(source != null, "source is null.");
             Contract.Requires(dest != null, "dest is null.");
-            Contract.Requires(this.source.IsInstanceOfType(ObjectType), "Reflected type does not match source object type");
-            Contract.Requires(this.dest.IsInstanceOfType(ObjectType), "Reflected type does not match dest object type");
+            Contract.Requires(source.IsInstanceOfType(ObjectType), "Reflected type does not match source object type");
+            Contract.Requires(dest.IsInstanceOfType(ObjectType), "Reflected type does not match dest object type");
 
             IEnumerable<string> getterNames = this.getPropertyNames.Intersect(this.setPropertyNames);
             if (includeFields)
@@ -107,8 +107,8 @@ namespace CommonUtilities
             Contract.Requires(source != null, "source is null.");
             Contract.Requires(dest != null, "dest is null.");
             Contract.Requires(property_names != null, "property_names is null.");
-            Contract.Requires(this.source.IsInstanceOfType(ObjectType), "Reflected type does not match source object type");
-            Contract.Requires(this.dest.IsInstanceOfType(ObjectType), "Reflected type does not match dest object type");
+            Contract.Requires(source.IsInstanceOfType(ObjectType), "Reflected type does not match source object type");
+            Contract.Requires(dest.IsInstanceOfType(ObjectType), "Reflected type does not match dest object type");
 
             foreach (string name in property_names)
             {
@@ -148,8 +148,8 @@ namespace CommonUtilities
         {
             Contract.Requires(comparedA != null, "source is null.");
             Contract.Requires(comparedB != null, "dest is null.");
-            Contract.Requires(this.comparedB.IsInstanceOfType(ObjectType));
-            Contract.Requires(this.comparedA.IsInstanceOfType(ObjectType));
+            Contract.Requires(comparedB.IsInstanceOfType(ObjectType));
+            Contract.Requires(comparedA.IsInstanceOfType(ObjectType));
 
             bool equal = false;
 
